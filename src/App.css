@@ -94,8 +94,8 @@ body {
 }
 
 .logo-container {
-  width: 100px;
-  height: 100px;
+  width: 35rem;
+  height: 35rem;
 }
 
 .logo {
@@ -193,4 +193,84 @@ body {
   }
 }
 
+
+/* Image Gallery Container */
+.programs-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+/* Individual Image Container */
+.image-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+/* Image Styling */
+.program-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  filter: brightness(95%);
+}
+
+/* Hover Effects */
+.image-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.program-image.hover-effect {
+  transform: scale(1.05);
+  filter: brightness(100%);
+}
+
+/* Image Caption */
+.image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+  padding: 20px 15px 10px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.image-container:hover .image-caption {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .programs-images {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .program-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .programs-images {
+    grid-template-columns: 1fr;
+  }
+  
+  .image-caption {
+    font-size: 1rem;
+    padding: 15px 10px 8px;
+  }
+}
 
